@@ -1,13 +1,19 @@
-import TodoForm from "./components/TodoForm";
-import TodoItems from "./components/TodoItems";
-console.clear()
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Notfound from './pages/Notfound'
+import Posts from './pages/Posts'
+
 const App = () => {
   return (
-    <div className="container m-auto">
-      <TodoForm />
-      <TodoItems/>
-    </div>
-  );
-};
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/posts/:id" element={<Posts />} />
+        <Route path="*" element={<Notfound />} />
+      </Routes>
+    </Router>
+  )
+}
 
-export default App;
+export default App
