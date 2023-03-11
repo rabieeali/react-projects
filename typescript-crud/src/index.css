@@ -39,3 +39,31 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+.text-white {
+  color: #fff;
+}
+.row {
+  display: flex;
+  gap: 1rem;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #555 1px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.form div {
+  display: flex;
+  gap: 0.25rem;
+  flex-direction: column;
+}
