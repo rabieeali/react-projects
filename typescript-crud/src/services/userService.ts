@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { IUser, IUserObject } from '../model';
+import { IUserObject } from '../model';
 
 
 class UserService {
@@ -18,8 +18,8 @@ class UserService {
         return response?.data
     }
 
-    async updateUser(userObject: IUserObject) {
-        const response = await this.http.put<IUserObject>('/users', userObject)
+    async updateUser(userObject: IUserObject, id: string | number) {
+        const response = await this.http.put<IUserObject>(`/users/${id}`, userObject)
         return response?.data
     }
 

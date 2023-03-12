@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { IUserObject } from '../model'
 import UserService from '../services/userService'
 import { useNavigate } from "react-router-dom"
@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 const AddNewUserPage = () => {
   const navigate = useNavigate()
 
+  const [error, setError] = useState<string>("")
   const [user, setUser] = useState<IUserObject>({
     email: '',
     name: ''
@@ -18,18 +19,25 @@ const AddNewUserPage = () => {
     setUser({ ...user, [name]: value })
   }
 
-  const isEmpty = Object.values(user).every(item => item === "")
+  const isEmpty = Object.values(user).some(item => item === "")
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
-      if (!isEmpty) return
+      if (isEmpty) {
+        return setError("please fill the fileds")
+      }
       await UserService.addNewUser(user)
-       navigate("/get-all-users")
+      navigate("/get-all-users")
     } catch (err) {
       console.log(err)
     }
   }
+
+
+  useEffect(() => {
+    setError("")
+  }, [user.email, user.name])
 
   return (
     <div className="App">
@@ -45,6 +53,7 @@ const AddNewUserPage = () => {
         </div>
         <button type="submit">Add</button>
       </form>
+      {error && <div>{error}</div>}
     </div>
   )
 }

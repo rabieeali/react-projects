@@ -7,7 +7,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 
 
-const GetAllUsersPage = () => {
+const AllUsersPage = () => {
 
   const { users, setUsers } = useUsers()
 
@@ -34,7 +34,7 @@ const GetAllUsersPage = () => {
   const deletHandler = async (id: number | string): Promise<void> => {
     try {
       await userServices.deleteUser(id)
-      await setRefetch(pre => !pre)
+      setRefetch(pre => !pre)
     } catch (err) {
       console.log(err)
     }
@@ -55,14 +55,17 @@ const GetAllUsersPage = () => {
 
   return (
     <div className='App'>
+      <div className='btn'>
+        <Link to="/add-new-user">Add New User</Link>
+      </div>
+      <h1>All Users</h1>
       <ul className='col'>
-      <Link to="/add-new-user">Add New User</Link>
         {users?.map((u) => (
           <div key={u.id} className='row'>
             <li>
               <strong>
                 <NavLink className='text-white' to={`/user/${u.id}`}>{u.name}</NavLink>
-                </strong> - <small>({u.email}</small>)</li>
+              </strong> - <small>({u.email}</small>)</li>
             <button onClick={() => deletHandler(u.id)}>delete</button>
           </div>
         ))}
@@ -71,4 +74,4 @@ const GetAllUsersPage = () => {
   )
 }
 
-export default GetAllUsersPage
+export default AllUsersPage
