@@ -12,13 +12,14 @@
     "react": "^18.1.0",
     "react-bootstrap": "^2.3.1",
     "react-dom": "^18.1.0",
+    "react-modal": "^3.16.1",
     "react-redux": "^8.0.2",
+    "react-responsive-modal": "^6.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "json-server --p 3001 --watch server/db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

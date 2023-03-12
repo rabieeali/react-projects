@@ -7,14 +7,15 @@ const TodoItems = () => {
   const { todos, loading, error } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
-  console.log(todos);
 
   useEffect(() => {
     dispatch(getAsyncTodos());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading) return <p className="display-1 text-center text-info">loading ...</p>;
-  if (error) return <p className="display-1 text-center text-danger">{error}</p>;
+  if (loading) return <p className="display-3 text-center text-info">loading ...</p>;
+  if (error) return <p className="display-3 text-center text-danger">{error}</p>;
+  if(!todos.length) return <p className="display-3 text-center text-danger">No Todos Yet!</p>
   return (
     <>
       {todos.map((todo) => (
@@ -24,7 +25,7 @@ const TodoItems = () => {
           title={todo.title}
           isCompeleted={todo.isCompeleted}
         />
-      ))}
+      )).reverse()}
     </>
   );
 };

@@ -1,7 +1,8 @@
-.add-todos::placeholder{
-color: #bbb;
+.add-todos::placeholder {
+    color: #bbb;
 }
-.text-red{
+
+.text-red {
     color: rgb(255, 31, 31);
     cursor: pointer;
 }
