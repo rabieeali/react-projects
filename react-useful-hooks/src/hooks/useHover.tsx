@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef } from 'react';
 
-const useHover = () => {
+function useHover() {
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
   const handleMouseOver = useCallback(() => setIsHovering(true), []);
@@ -23,6 +23,6 @@ const useHover = () => {
     [handleMouseOver, handleMouseOut]
   );
   return [callbackRef, isHovering];
-};
+}
 
 export default useHover;
