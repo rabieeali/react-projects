@@ -2,9 +2,31 @@ import { useState } from 'react';
 import { Accordion, AccordionGroup } from './components/Accordion';
 import { Breadcrumb } from './components/Breadcrumb';
 import { Modal } from './components/Modal';
+import Button from './components/Button';
+import Countdown from './components/Countdown';
+import Tabs from './components/Tabs';
+import MyCustomComponent from './components/MyCustomComponent';
+import Divider from './components/Divider';
+// import Carousel from './components/Carousel';
 
 const App: React.FC = () => {
   const items = [{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog' }, { label: 'Article' }];
+  const targetDate = '2023-12-31T23:59:59';
+
+  const tabs = [
+    {
+      label: 'Tab 1',
+      content: MyCustomComponent,
+    },
+    {
+      label: 'Tab 2',
+      content: () => <p>This is the content for Tab 2</p>,
+    },
+    {
+      label: 'Tab 3',
+      content: () => <p>This is the content for Tab 3</p>,
+    },
+  ];
 
   return (
     <>
@@ -35,7 +57,7 @@ const App: React.FC = () => {
       <hr />
       <hr />
       <hr />
-      <>
+      {/* <>
         <button onClick={handleOpenModal}>Open Modal</button>
         <Modal isOpen={isOpen} onClose={handleCloseModal}>
           <h2 className='text-lg font-medium mb-4'>Modal Title</h2>
@@ -44,7 +66,38 @@ const App: React.FC = () => {
             Close Modal
           </button>
         </Modal>
-      </>
+      </> */}
+
+      <div>
+        <Button>Click me!</Button>
+        <Button variant='outline'>Click me too!</Button>
+        <Button disabled>Can't click me!</Button>
+      </div>
+
+      {/* <div>
+        <Carousel images={images=[]} autoplay interval={5000} />
+      </div> */}
+
+      <div>
+        <h1>Countdown to New Year's Eve</h1>
+        <Countdown targetDate={targetDate} />
+      </div>
+
+      <div>
+        <Tabs tabs={tabs} />
+      </div>
+
+      <hr />
+      <hr />
+      <hr />
+      <div className='w-1/6'>
+      <p>Some content above the divider</p>
+      <Divider className="my-4" />
+      <p>Some content below the divider</p>
+    </div>
+      <hr />
+      <hr />
+      <hr />
     </>
   );
 };
