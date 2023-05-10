@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { RootState } from '@/app/store';
+import { getAllCountries } from '@/api/axios';
 
 interface CountryState {
     countries: Country[];
@@ -14,13 +14,7 @@ const initialState: CountryState = {
     error: null,
 };
 
-export const fetchCountries = createAsyncThunk(
-    'countries/fetchCountries',
-    async () => {
-        const response = await axios.get('https://restcountries.com/v3.1/all');
-        return response?.data;
-    }
-);
+export const fetchCountries = createAsyncThunk('countries/fetchCountries', async () => await getAllCountries());
 
 const countrySlice = createSlice({
     name: 'countries',

@@ -21,7 +21,7 @@ const App = () => {
   if (loading) return (<p>Loading ...</p>)
   if (error) return (<p>error: {error}</p>)
 
-  
+
   return (
     <>
       <Helmet htmlAttributes={{ lang: 'en' }}>
@@ -33,7 +33,7 @@ const App = () => {
         <ThemeSelect />
       </div>
       <Container>
-      {countries.map(item=>(<p key={item.name.common}>{item.name.common}</p>))}
+        {countries.map(item => (<p key={item.name.common}>{item.name.common}</p>))}
       </Container>
 
     </>
