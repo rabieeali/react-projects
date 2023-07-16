@@ -7,11 +7,10 @@ const App = () => {
   useScanDetection({
     onComplete: (code: any) => {
       setBarcode(code)
-    },
-    minLength: 3
+    }
   })
 
-  useEffect(()=>{console.log(barcode)},[barcode])
+  useEffect(() => { console.log(barcode) }, [barcode])
 
   return (
     <div>
