@@ -2,3 +2,7 @@ html,
 body {
   min-height: 100vh;
 }
+
+.overlay-img {
+  height: 20rem;
+}

@@ -2,25 +2,14 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@/app/*": [
-        "app/*"
-      ],
-      "@/pages/*": [
-        "pages/*"
-      ],
-      "@/shared/*": [
-        "shared/*"
-      ],
-      "@/api/*": [
-        "api/*"
-      ]
+      "@/app/*": ["app/*"],
+      "@/pages/*": ["pages/*"],
+      "@/shared/*": ["shared/*"],
+      "@/common/*": ["common/*"],
+      "@/api/*": ["api/*"]
     },
     "target": "ESNext",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -36,9 +25,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "references": [
     {
       "path": "./tsconfig.node.json"
