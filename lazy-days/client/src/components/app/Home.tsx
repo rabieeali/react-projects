@@ -3,8 +3,19 @@ import { ReactElement } from 'react';
 import { GiFlowerPot } from 'react-icons/gi';
 
 import { BackgroundImage } from '../common/BackgroundImage';
+import { usePrefetchTreatment } from 'components/treatments/hooks/useTreatments';
+
 
 export function Home(): ReactElement {
+
+  usePrefetchTreatment();
+  // we are using this and it runs on every render
+  // we could configure staleTime and cacheTime on the hook it self at : 'components/treatments/hooks/useTreatments'
+  // but here our home page is not dynamic
+  // and useEffect is not a good option in here
+
+
+
   return (
     <Stack textAlign="center" justify="center" height="84vh">
       <BackgroundImage />
