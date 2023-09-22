@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "React vs. Angular",
+      "body": "Angular is the best"
+    },
+    {
+      "id": "2",
+      "title": "I have an amazing day",
+      "body": "this coffe is good"
+    },
+    {
+      "id": "3",
+      "title": "Web Development",
+      "body": "Building amazing web apps"
+    },
+    {
+      "id": "4",
+      "title": "Data Science",
+      "body": "Exploring data insights"
+    },
+    {
+      "id": "5",
+      "title": "Mobile App Development",
+      "body": "Creating mobile apps is hard"
+    }
+  ]
+}
