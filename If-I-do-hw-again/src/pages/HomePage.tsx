@@ -7,12 +7,14 @@ import {
   Box,
 } from '@chakra-ui/react';
 import CountryCard from '../components/CountryCard';
-import useCountries from '../hooks/useCountries';
 import { v4 as uuidv4 } from 'uuid';
 import { Container } from '@chakra-ui/react';
+import useSwr from 'swr';
+import { Country } from '../types';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-  const { countries, isError, isLoading } = useCountries();
+  const { data: countries, isLoading, error } = useSwr('/all');
 
   let content;
 
@@ -42,7 +44,7 @@ const HomePage = () => {
 
   if (isLoading) {
     content = skeletonLoading;
-  } else if (isError) {
+  } else if (error) {
     content = (
       <Alert status='error'>
         <AlertIcon />
@@ -52,13 +54,15 @@ const HomePage = () => {
   } else {
     content = (
       <SimpleGrid columns={[1, 2, 3, 4]} spacing='1rem'>
-        {countries?.map((item) => (
-          <CountryCard
-            key={uuidv4()}
-            name={item.name.common}
-            image={item.flags[1]}
-            continent={item.continents}
-          />
+        {countries?.map((item: Country) => (
+          <Link to={`counrty/${item.name.common}`}>
+            <CountryCard
+              key={uuidv4()}
+              name={item.name.common}
+              image={item.flags[1]}
+              continent={item.continents}
+            />
+          </Link>
         ))}
       </SimpleGrid>
     );

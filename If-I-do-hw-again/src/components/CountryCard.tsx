@@ -1,15 +1,14 @@
 import { Card, CardBody, Heading, Image, Stack, Text } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
 
 interface Props {
   image: string;
   name: string;
   continent: string[];
 }
-
 const CountryCard = ({ image, continent, name }: Props) => {
+
   return (
-    <Link to={`counrty/${name}`}>
+
       <Card height='100%' maxW='sm'>
         <CardBody>
           <Image
@@ -26,7 +25,7 @@ const CountryCard = ({ image, continent, name }: Props) => {
           </Stack>
         </CardBody>
       </Card>
-    </Link>
+
   );
 };
 

@@ -49,7 +49,7 @@ interface Maps {
   openStreetMaps: string;
 }
 
-export interface ICountry {
+export interface Country {
   name: Name;
   tld: string[];
   cca2: string;

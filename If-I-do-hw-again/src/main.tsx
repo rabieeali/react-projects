@@ -5,9 +5,10 @@ import App from './App.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
 
-import { QueryClient, QueryClientProvider } from 'react-query';
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { SWRConfig } from 'swr';
+import { SWROption } from './configs/index.ts';
 
 const colors = {
   brand: {
@@ -19,18 +20,16 @@ const colors = {
 
 const theme = extendTheme({ colors });
 
-const client = new QueryClient();
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <QueryClientProvider client={client}>
+      <SWRConfig value={SWROption}>
         <BrowserRouter>
           <Routes>
             <Route path='/*' element={<App />} />
           </Routes>
         </BrowserRouter>
-      </QueryClientProvider>
+      </SWRConfig>
     </ChakraProvider>
   </React.StrictMode>
 );
