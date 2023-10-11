@@ -1,0 +1,33 @@
+{
+    //the order of the "extends" array matters.
+    "extends": [
+      "eslint:recommended", //loads all of the eslint:recommended rules including white space rules.
+      "plugin:import/errors", //https://www.npmjs.com/package/eslint-plugin-import
+      "plugin:react/recommended", //https://www.npmjs.com/package/eslint-plugin-react
+      "plugin:jsx-a11y/recommended", //https://www.npmjs.com/package/eslint-plugin-jsx-a11y
+      "prettier" //turns off the eslint white space rules and other rules it knows how to handle specifically.
+    ],
+    "plugins": ["react", "jsx-a11y", "import"],
+    "rules": {
+      "react/prop-types": 0, //turns off props types '0' means turn off
+      "react/react-in-jsx-scope": 0 //turns off requiring to import react in every file
+    },
+    "parserOptions": {
+      "ecmaVersion": 2021, //use the most modern version.
+      "sourceType": "module", //we will be using ES Modules
+      "ecmaFeatures": {
+        "jsx": true //we will be using JSX
+      }
+    },
+    "env": {
+      //describe the environment this code will run in
+      "es6": true, //eslint won't throw error if we try to use es6 methods like map() or reduce().
+      "browser": true, //eslint won't throw errors if we use fetch() or the window object
+      "node": true //eslint won't throw erroes if we try to access things in a node environement like 'golbal' or 'process'.
+    },
+    "settings": {
+      "react": {
+        "version": "detect" //tells eslint to look at the package.json and figure it out
+      }
+    }
+  }
